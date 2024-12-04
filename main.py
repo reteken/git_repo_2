@@ -73,7 +73,7 @@ template = """<?xml version="1.0" encoding="UTF-8"?>
 """
 
 
-class Calculator(QMainWindow):
+class Umome(QMainWindow):
     def __init__(self):
         super().__init__()
         f = io.StringIO(template)
@@ -85,6 +85,6 @@ class Calculator(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ex = Calculator()
+    ex = Umome()
     ex.show()
     sys.exit(app.exec())
