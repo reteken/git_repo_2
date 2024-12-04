@@ -1,10 +1,11 @@
-import sys, io
+import sys, math, io
 
 from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
 
-template = """
-<?xml version="1.0" encoding="UTF-8"?>
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QMainWindow
+
+template = """<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
@@ -20,17 +21,37 @@ template = """
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>-50</x>
-      <y>240</y>
-      <width>891</width>
-      <height>391</height>
+      <x>80</x>
+      <y>30</y>
+      <width>621</width>
+      <height>161</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>470</y>
+      <width>201</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Это кнопка которая делает очень много контента просто не жать ее лучше чем нажать и получить минус вайб не жми</string>
+     <string>Данные кофе достай ежик</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>470</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -49,24 +70,21 @@ template = """
  <resources/>
  <connections/>
 </ui>
-
 """
 
 
-class tester(QMainWindow):
+class Calculator(QMainWindow):
     def __init__(self):
         super().__init__()
         f = io.StringIO(template)
         uic.loadUi(f, self)
-        self.btn = QPushButton(self)
-        self.btn.clicked.connect(self.run())
 
     def run(self):
-        print("кружочек рандомного размера")
+        pass
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ex = tester()
+    ex = Calculator()
     ex.show()
     sys.exit(app.exec())
